@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Card Demo</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+<style>
+:root {
+  --primary: #2563eb;
+  --secondary: #10b981;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f0f9ff, #f8fafc, #ecfeff);
+  min-height: 100vh;
+}
+
+/* Background animation */
+.bg-shape {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: var(--primary);
+  opacity: 0.1;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 10s ease-in-out infinite;
+}
+
+.bg-shape2 {
+  right: 0;
+  bottom: 0;
+  background: var(--secondary);
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0);}
+  50% { transform: translateY(-20px);}
+}
+
+/* Card */
+.card {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.92);
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Buttons */
+.btn {
+  display: block;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Theme Switch -->
+<div class="fixed top-5 right-5 flex gap-2">
+  <button onclick="setTheme('blue')" class="w-6 h-6 rounded-full bg-blue-600"></button>
+  <button onclick="setTheme('green')" class="w-6 h-6 rounded-full bg-green-600"></button>
+  <button onclick="setTheme('teal')" class="w-6 h-6 rounded-full bg-teal-500"></button>
+  <button onclick="setTheme('gray')" class="w-6 h-6 rounded-full bg-gray-700"></button>
+</div>
+
+<div class="bg-shape top-10 left-10"></div>
+<div class="bg-shape bg-shape2"></div>
+
+<div class="flex items-center justify-center min-h-screen p-4">
+
+  <div class="card max-w-md w-full p-6 md:p-8 shadow-lg text-center">
+
+    <!-- Demo Header -->
+    <h2 class="text-lg font-semibold text-[var(--primary)]">Digital Health Card</h2>
+    <p class="text-xs text-gray-500">Demo Profile Preview</p>
+
+    <!-- Profile -->
+    <img src="https://i.pravatar.cc/150"
+         class="w-24 h-24 mx-auto rounded-full border-4 border-gray-100 shadow mt-4">
+
+    <h1 class="text-lg font-bold text-gray-800 mt-3">Doctor Name</h1>
+    <p class="text-sm text-gray-500">Specialization</p>
+    <p class="text-xs text-gray-400 mt-1">Experience • Qualifications</p>
+
+    <!-- Contact -->
+    <div class="mt-6 space-y-3 text-sm">
+
+      <a href="#" class="btn text-white" style="background: var(--primary);">
+        <i class="fa fa-phone mr-2"></i> Call
+      </a>
+
+      <a href="#" class="btn bg-green-600 text-white">
+        <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp
+      </a>
+
+      <a href="#" class="btn bg-gray-800 text-white">
+        <i class="fa fa-envelope mr-2"></i> Email
+      </a>
+
+    </div>
+
+    <!-- Social & Website -->
+    <div class="mt-5 grid grid-cols-3 gap-2 text-sm">
+
+      <a href="#" class="btn bg-pink-500 text-white">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="#" class="btn bg-blue-700 text-white">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <a href="#" class="btn bg-gray-600 text-white">
+        <i class="fa fa-globe"></i>
+      </a>
+
+    </div>
+
+    <!-- Location -->
+    <div class="mt-6 text-sm text-gray-600">
+
+      <p class="mb-2">
+        <i class="fa fa-location-dot mr-2 text-[var(--primary)]"></i>
+        Clinic / Hospital Address
+      </p>
+
+      <div class="flex gap-2">
+        <a href="#" class="flex-1 btn" style="background:#e0f2fe;color:#0369a1;">
+          View Map
+        </a>
+
+        <a href="#" class="flex-1 btn" style="background:#dcfce7;color:#166534;">
+          Directions
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Timing -->
+    <div class="mt-5 text-xs text-gray-500">
+      Mon - Sat | 10 AM - 6 PM
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function setTheme(color) {
+  const root = document.documentElement;
+
+  if (color === 'blue') {
+    root.style.setProperty('--primary', '#2563eb');
+    root.style.setProperty('--secondary', '#10b981');
+  }
+
+  if (color === 'green') {
+    root.style.setProperty('--primary', '#16a34a');
+    root.style.setProperty('--secondary', '#22c55e');
+  }
+
+  if (color === 'teal') {
+    root.style.setProperty('--primary', '#0d9488');
+    root.style.setProperty('--secondary', '#14b8a6');
+  }
+
+  if (color === 'gray') {
+    root.style.setProperty('--primary', '#374151');
+    root.style.setProperty('--secondary', '#6b7280');
+  }
+}
+</script>
+
+</body>
+</html>
